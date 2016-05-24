@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./static/css/add.css">
+
+    <link rel="stylesheet" href="./static/css/main.css">
+    <script src="./static/js/jquery-2.2.0.js"></script>
+
+    <script src="./static/js/add.js"></script>
+    <title>add</title>
+</head>
+<body>
+    <div class="nav-mnt">
+        <div class="nav-main">
+            <div class="nav-logo">
+
+            </div>
+            <a class="nav-item" href="./" id="index">
+                首页
+            </a>
+{#            <a class="nav-item"  href="./world-2d" id="world-2d" target="_blank">#}
+{#                全球2D#}
+{#            </a>#}
+{#            <a class="nav-item" href="./world-3d" id="world-3d" target="_blank">#}
+{#                全球3D#}
+{#            </a>#}
+            <a class="nav-item" href="./china-2d" id="china-2d" target="_blank">
+                铁路网
+            </a>
+            <a class="nav-item" href="./eqp" id="eqp">
+                设备
+            </a>
+
+            {% if inData.level!=2 %}
+            <a class="nav-item" href="./manage" id="manage">
+                管理
+            </a>
+            {% endif %}
+            <a class="nav-item" href="./user" id="user">
+                用户
+            </a>
+            <a class="nav-item" href="./logout" id="logout">
+                退出
+            </a>
+        </div>
+    </div>
+
+
+</body>
+</html>

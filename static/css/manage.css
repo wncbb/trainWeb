@@ -1,0 +1,904 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background: #ccc;
+}
+
+.main{
+    position: relative;
+    top: 70px;
+    margin: 0 auto;
+    width: 1500px;
+    height: 800px;
+    min-height: 600px;
+    background: #ccc;
+}
+
+.left-ctl{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 600px;
+    font-size: 14px;
+}
+
+.left-ctl .tab-item{
+    position: relative;
+    width: 40px;
+    height: auto;
+    background: #fff;
+    text-align: center;
+    border: 1px solid #ccc;
+    color: #0769ad;
+}
+
+.left-ctl .tab-item:hover{
+    cursor: pointer;
+}
+
+
+.left-ctl .tab-text{
+    position: relative;
+    padding: 15px 0;
+    margin: 0 10px;
+    width: 18px;
+    height: auto;
+    font-weight: 900;
+}
+
+.left-ctl .tab-item-active{
+    position: relative;
+    width: 38px;
+    height: auto;
+    background: #0769ad;
+    text-align: center;
+    border: 1px solid #0769ad;
+    color: #fff;
+}
+
+.left-ctl .tab-item:hover{
+    cursor: pointer;
+}
+
+.main .right-ctn{
+    position: absolute;
+    top: 0;
+    left: 40px;
+    width: 1458px;
+    height: 798px;
+    border: 1px solid #0769ad;
+    overflow: scroll;
+}
+
+.right-ctn .right-core{
+    position: relative;
+    width: 1440px;
+    height: auto;
+    /*min-height: 798px;*/
+}
+
+
+.add-eqp-line{
+    position: relative;
+    /*margin-left: 20px;*/
+    /*margin-top: 10px;*/
+    margin: 10px auto;
+    margin-bottom: 10px;
+
+    height: 40px;
+    background: #bbb;
+}
+
+.add-eqp-line select{
+    position: relative;
+    display: block;
+    float: left;
+    top: 7px;
+    margin-left: 10px;
+    font-size: 16px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.add-eqp-line .add-eqp-line-item{
+    position: relative;
+    float: left;
+    margin-left: 30px;
+    height: 40px;
+    width: auto;
+    line-height: 40px;
+}
+
+.add-eqp-line .add-text{
+    display: block;
+    position: relative;
+    float: left;
+    width: auto;
+    margin-left: 15px;
+    top: 9px;
+    height: 26px;
+    line-heght: 26px;
+    font-size: 16px;
+    color: #0769ad;
+}
+
+.add-eqp-line .add-normal-text{
+    display: none;
+    position: relative;
+    float: left;
+    width: auto;
+    margin-left: 5px;
+    top: 9px;
+    height: 26px;
+    line-heght: 26px;
+    font-size: 16px;
+    color: #0769ad;
+}
+
+.add-eqp-line .add-error-text{
+    display: none;
+    position: relative;
+    float: left;
+    width: auto;
+    margin-left: 5px;
+    top: 9px;
+    height: 26px;
+    line-heght: 26px;
+    font-size: 16px;
+    color: #d30d15;
+}
+
+.add-eqp-line .add-input{
+    display: block;
+    position: relative;
+    margin-left: 10px;
+    padding-left: 2px;
+    top: 7px;
+    float: left;
+    width: 120px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    border: 1px solid #0769ad;
+}
+
+.add-eqp-line .add-btn{
+    display: block;
+    position: relative;
+    margin-left: 10px;
+    margin-right: 30px;
+    top: 7px;
+    float: left;
+    width: 100px;
+    height: 26px;
+    line-height: 26px;
+    font-size: 16px;
+    text-align: center;
+    background: #0769ad;
+    color: white;
+}
+
+.add-eqp-line .add-btn:hover{
+    cursor: pointer;
+}
+
+.display-none{
+    display: none;
+}
+
+#eqp-show .eqp-show-line{
+    position: relative;
+    width: 1600px;
+    height: auto;
+    margin-left: 10px;
+    min-height: 80px;
+    line-height: 80px;
+    font-size: 14px;
+    text-align: center;
+    clear:both;
+    margin-top: 10px;
+    background: #fff;
+    border: 1px solid #fff;
+}
+
+.clear-fix{
+    zoom: 1;
+}
+
+.clear-fix:after {
+     content: ".";
+     display: block;
+     height: 0;
+     clear: both;
+     visibility: hidden;
+}
+
+.clear-float{
+    display: block;
+    width: 0;
+    height: 0;
+    content: '.';
+    position: relative;
+    clear:both;
+}
+
+#eqp-show .eqp-show-line:hover{
+    box-shadow: 0 0 5px #aaa;
+}
+#eqp-show .eqp-show-line .eqp-show-line-head{
+    width: 90px;
+    height: 80px;
+    position: relative;
+    float: left;
+    font-size: 16px;
+    background: #0f6;
+    color: #fff;
+}
+
+#eqp-show .eqp-show-line .eqp-show-line-item{
+    width: auto;
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 20px;
+    line-height: 30px;
+    position: relative;
+    float: left;
+}
+
+
+#eqp-show .eqp-show-line .eqp-show-line-cmd{
+    position: relative;
+    float: right;
+    font-size: 16px;
+    width: 80px;
+    height: 60px;
+    top: 10px;
+    line-height: 60px;
+}
+
+
+.eqp-edit-block{
+    display: none;
+    position: relative;
+    float: left;
+    width: 1400px;
+    height: 60px;
+    line-height: 40px;
+}
+.eqp-edit-block button{
+    width: 100px;
+    height: 24px;
+}
+
+.eqp-edit-block .eeb-item{
+    position: relative;
+    float: left;
+    height: 40px;
+    width: auto;
+    font-size: 16px;
+}
+
+.eqp-edit-block .eeb-msg{
+    position: relative;
+    float: left;
+    height: 40px;
+    padding-left: 60px;
+    width: auto;
+    font-size: 16px;
+    color: #d30d15;
+}
+
+.eqp-edit-block .eeb-item-right{
+    position: relative;
+    float: right;
+    height: 40px;
+    width: auto;
+    font-size: 16px;
+}
+.eqp-edit-block .margin-right{
+    margin-right: 118px;
+}
+
+.right-text{
+    text-align: right;
+}
+
+.eqp-edit-block .eeb-item input[type=text]{
+    position: relative;
+    top: -2px;
+    width: 160px;
+    height: 20px;
+    padding: 0 2px;
+}
+
+.eqp-edit-block .ts-width{
+    width:60px;
+}
+.eqp-edit-block .sm-width{
+    width: 120px;
+}
+.eqp-edit-block .md-width{
+    width: 200px;
+}
+
+.eqp-edit-block .fa-square-o:hover{
+    color: #d30d15;
+}
+.eqp-edit-block .fa-check-square-o:hover{
+    color: #d30d15;
+}
+
+.eqp-edit-block .btn{
+    display: block;
+    position: relative;
+    top: 25px;
+    left: 60px;
+    width: 100px;
+    height: 26px;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.show-line{
+    position: relative;
+    margin: 0 auto;
+    height: 30px;
+}
+
+.show-line:hover{
+    background: #bbb;
+}
+
+.show-line .refresh-btn{
+    width: 100px;
+    height: 26px;
+    line-height: 26px;
+    margin: 0 auto;
+    background: #0769ad;
+    text-align: center;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    color: #fff;
+}
+
+.show-line .refresh-btn:hover{
+    cursor: pointer;
+}
+
+#eqp-manage .show-line{
+    width: 1400px;
+}
+
+#station-manage .show-line{
+    width: 1300px;
+}
+
+#sensor-manage .show-line{
+    width: 1300px;
+}
+
+#user-manage .show-line{
+    width: 600px;
+}
+
+#auth-manage .show-line{
+    width: 1000px;
+    margin-top: 20px;
+}
+
+
+#eqp-manage .add-eqp-line{
+    width: 1420px;
+}
+
+#station-manage .add-eqp-line{
+    width: 1420px;
+}
+
+#sensor-manage .add-eqp-line{
+    width: 1420px;
+}
+
+#user-manage .add-eqp-line{
+    width: 1420px;
+}
+
+#auth-manage .add-eqp-line{
+    width: 900px;
+}
+
+
+
+#user-show{
+    padding: 10px;
+}
+
+#user-show .block{
+    position: relative;
+    float: left;
+    width: 450px;
+    height: auto;
+    margin: 10px;
+}
+
+#user-show .line{
+    position: relative;
+    float: left;
+    width: 100%;
+    margin: 5px;
+    height: auto;
+    min-height: 40px;
+    line-height: 40px;
+    background: #fff;
+}
+
+
+.user-edit-block{
+    display: none;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    float: left;
+    width: 396px;
+    padding-left: 50px;
+    height: 222px;
+}
+
+.user-edit-block .sm-width{
+    width: 100px;
+}
+
+.user-edit-block .md-width{
+    width: 190px;
+}
+
+.user-edit-block .user-edit-block-line{
+    width: 100%;
+    padding: 0;
+    height: 40px;
+    position: relative;
+    text-align: center;
+}
+.user-edit-block .user-edit-block-line button{
+    position: relative;
+    float: left;
+    left: 8px;
+    width: 100px;
+    margin: 6px 10px;
+}
+.user-edit-block .user-edit-block-line .user-edit-block-line-item{
+    position: relative;
+    float: left;
+}
+
+.user-edit-block .user-edit-block-line .user-edit-block-line-check{
+    display: block;
+    position: relative;
+    float: left;
+    width: 42px;
+    height: 24px;
+    top: 9px;
+    margin-right: -35px;
+}
+
+.user-edit-block .user-edit-block-line-msg{
+    position: relative;
+    top: -5px;
+    left: 18px;
+    width: 340px;
+    height: 20px;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 0;
+    float: left;
+    width: 100%;
+    text-align:left;
+    color: #c30;
+}
+
+
+
+.user-edit-block .user-edit-block-line .user-edit-block-line-item input[type=password] {
+    height: 20px;
+    width: 160px;
+    top: 0px;
+    padding: 0 10px;
+    position: relative;
+}
+
+.user-edit-block .abled{
+    background: #fff;
+}
+.user-edit-block .disabled{
+    background: #ccc;
+}
+
+.user-edit-block .user-edit-block-line .user-edit-block-line-item input[type=text] {
+    height: 20px;
+    width: 160px;
+    top: 0px;
+    padding: 0 10px;
+    position: relative;
+}
+
+
+.user-edit-block .user-edit-block-line .user-edit-block-line-item select {
+    height: 25px;
+    top: 0px;
+    width: 184px;
+    padding: 0 4px;
+    position: relative;
+}
+
+.fa-calendar-check-o:hover{
+    color: #c30;
+    cursor: default;
+}
+
+.fa-pencil:hover{
+    color: #c30;
+    cursor: default;
+}
+
+.fa-trash:hover{
+    color: #c30;
+    cursor: default;
+}
+
+.fa-calendar-check-o:hover{
+    color: #c30;
+    cursor: default;
+}
+
+#user-show .line:hover{
+
+    box-shadow: 0 0 5px #888;
+}
+
+#user-show .line .left{
+    position: relative;
+    float: left;
+    width: 120px;
+    height: 40px;
+    text-align:center;
+    color: #fff;
+}
+
+#user-show .line .name{
+    position: relative;
+    float: left;
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    padding: 0 10px;
+}
+
+#user-show .line .cmd{
+    position: relative;
+    float: right;
+    width: 80px;
+    height: 40px;
+    text-align: center;
+}
+
+#user-show .line .level-0{
+    background: #090;
+}
+
+#user-show .line .level-1{
+    background: #099;
+}
+
+#user-show .line .level-2{
+    background: #069;
+}
+
+.show-line .show-title-item{
+
+    position: relative;
+    float: left;
+
+    height: 30px;
+    line-height: 30px;
+    color: #0769ad;
+    font-weight: 900;
+    text-align: center;
+}
+
+.show-line .show-title-item + .show-title-item{
+    border-left: 1px solid #bbb;
+}
+
+
+.show-line .show-item{
+    position: relative;
+    float: left;
+
+    height: 30px;
+    line-height: 30px;
+    color: #111;
+    text-align: center;
+}
+
+.show-line .show-item + .show-item{
+    border-left: 1px solid #bbb;
+}
+
+.tn-width{
+    width: 60px;
+}
+
+.vs-width{
+    width: 80px;
+}
+
+.sm-width{
+    width: 100px;
+}
+
+.md-width{
+    width: 120px;
+}
+
+.lg-width{
+    width: 160px;
+}
+
+.vl-width{
+    width: 180px;
+}
+
+.sl-width{
+    width: 240px;
+}
+
+.icon-pencil:hover{
+
+    color: #096;
+    font-weight: 900;
+
+}
+
+.icon-trash:hover{
+
+    color: #d30d15;
+    font-weight: 900
+}
+
+#station-show{
+    position: relative;
+    margin: 0 auto;
+    width: 1360px;
+    height: auto;
+
+}
+
+#station-show .station-line{
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    background: #fff;
+    margin: 10px 0;
+}
+#station-show .station-line:hover{
+    box-shadow: 0 0 8px #aaa;
+}
+
+#station-show .station-line .station-line-head{
+    position: relative;
+    float: left;
+    width: 100px;
+    height: 40px;
+    background: #096;
+    text-align: center;
+    color: #fff;
+}
+#station-show .station-line .station-line-item{
+    position: relative;
+    float: left;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    padding-right: 10px;
+    text-align: right;
+}
+#station-show .station-line input{
+    display: block;
+    position: relative;
+    top:10px;
+    float: left;
+    width: 180px;
+    height: 20px;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 0 6px;
+
+    color: #000;
+}
+#station-show .input-disabled{
+    border: 1px solid #fff;
+}
+#station-show .input-abled{
+    border: 1px solid #bbb;
+}
+
+#station-show .station-line .station-line-cmd{
+    position: relative;
+    float: right;
+    width: 80px;
+    height: 40px;
+    text-align: center;
+}
+#station-show button{
+    display: none;
+    position: relative;
+    float: left;
+    top: 10px;
+    margin:0 10px;
+    width: 60px;
+    text-align: center;
+}
+
+.title-color{
+    font-weight: bold;
+    color: #0769ad;
+}
+
+#sensor-show .sensor-show-line{
+    position: relative;
+    width: 1300px;
+    margin: 10px auto;
+    height: 80px;
+    font-size: 14px;
+    line-height: 40px;
+    background: #fff;
+}
+#sensor-show .sensor-show-line .sensor-show-line-head{
+    position: relative;
+    float: left;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    background: #0f6;
+    color: #fff;
+}
+#sensor-show .sensor-show-line .sensor-show-line-item{
+    position: relative;
+    float: left;
+    width: auto;
+    margin: 10px 20px;
+    height: 80px;
+    text-align: center;
+    line-height: 30px;
+}
+
+
+
+#sensor-show .sensor-show-line .sensor-show-line-item .text-input{
+    position: relative;
+    width: auto;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+    border: 1px solid #fff;
+    color: #000;
+}
+#sensor-show .sensor-show-line .sensor-show-line-item .select{
+    position: relative;
+    width: auto;
+    height: 23px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+    border: 1px solid #fff;
+    color: #000;
+}
+
+#sensor-show .sensor-show-line .sensor-show-line-cmd{
+    position: relative;
+    float: right;
+    width: 80px;
+    height: 68px;
+    top:12px;
+    text-align: center;
+    line-height: 26px;
+}
+
+#sensor-show .sensor-show-line .sensor-show-line-cmd-sb{
+    position: relative;
+    float: right;
+    width: 60px;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+}
+
+#auth-show .auth-show-line {
+    position: relative;
+    width: 1200px;
+    margin: 10px auto;
+    height: 80px;
+    font-size: 14px;
+    line-height: 40px;
+    background: #fff;
+}
+#auth-show .auth-show-line:hover{
+    box-shadow: 0 0 10px #aaa;
+}
+
+#auth-show .auth-show-line-head {
+    position: relative;
+    width: 100px;
+    float: left;
+    margin: 0 auto;
+    height: 80px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 80px;
+    background: #099;
+    color: #fff;
+}
+#auth-show .auth-show-line-item {
+    position: relative;
+    width: auto;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 60px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 30px;
+}
+#auth-show .auth-show-line-cmd {
+    position: relative;
+    width: 80px;
+    float: right;
+    height: 80px;
+    line-height: 80px;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

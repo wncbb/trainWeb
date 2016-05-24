@@ -1,0 +1,10 @@
+
+.pop-box{
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    margin: auto;
+    top: 200px;
+    z-index: 100;
+    background: yellow;
+}

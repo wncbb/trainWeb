@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./static/css/main.css">
+    <link rel="stylesheet" href="./static/css/manage.css">
+    <link rel="stylesheet" href="./static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./static/css/fa.css">
+    <script src="./static/js/jquery-2.2.0.js"></script>
+    <script src="./static/js/main.js"></script>
+    <script src="./static/js/manage.js"></script>
+    <title>管理</title>
+</head>
+<body>
+
+
+    <div class="nav-mnt">
+        <div class="nav-main">
+            <div class="nav-logo">
+
+            </div>
+            <a class="nav-item" href="./" id="index">
+                首页
+            </a>
+{#            <a class="nav-item"  href="./world-2d" id="world-2d" target="_blank">#}
+{#                全球2D#}
+{#            </a>#}
+{#            <a class="nav-item" href="./world-3d" id="world-3d" target="_blank">#}
+{#                全球3D#}
+{#            </a>#}
+            <a class="nav-item" href="./china-2d" id="china-2d" target="_blank">
+                铁路网
+            </a>
+            <a class="nav-item" href="./eqp" id="eqp">
+                设备
+            </a>
+
+            {% if inData.level!=2 %}
+            <a class="nav-item" href="./manage" id="manage">
+                管理
+            </a>
+            {% endif %}
+            <a class="nav-item" href="./user" id="user">
+                用户
+            </a>
+            <a class="nav-item" href="./logout" id="logout">
+                退出
+            </a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="left-ctl">
+            <div class="tab-item-active"  id="eqp-tab">
+                <div class="tab-text" >
+                    设备管理
+                </div>
+            </div>
+
+            {% if inData.level==0 %}
+
+            <div class="tab-item"  id="station-tab">
+                <div class="tab-text">
+                    部门管理
+                </div>
+            </div>
+            <div class="tab-item" id="sensor-tab">
+                <div class="tab-text" >
+                    传感器管理
+                </div>
+            </div>
+            <div class="tab-item" id="user-tab">
+                <div class="tab-text" >
+                    用户管理
+                </div>
+            </div>
+            <div class="tab-item" id="auth-tab">
+                <div class="tab-text" >
+                    授权管理
+                </div>
+            </div>
+
+            {% endif %}
+
+        </div>
+        <div class="right-ctn">
+
+
+
+
+            <div class="right-core" id="eqp-manage">
+                <div class="add-eqp-line">
+
+                    <div class="add-eqp-line-item">
+                        所属部门
+                    </div>
+                    <select name="show-type" id="station-type">
+                        <option value="all">所有</option>
+                        {% for item in inData['stationInfo'] %}
+                            <option value="{{ item.name }}">{{ item.name }}</option>
+                        {% endfor %}
+
+                    </select>
+
+                    <div class="add-eqp-line-item">
+                        授权类型
+                    </div>
+                    <select name="show-type" id="authority-type">
+                        <option value="all">所有</option>
+                        <option value="1">授权</option>
+                        <option value="0">未授权</option>
+                    </select>
+
+                    <div class="add-eqp-line-item">
+                        当前在线情况
+                    </div>
+                    <select name="show-type" id="online-type">
+                        <option value="all">所有</option>
+                        <option value="1">在线</option>
+                        <option value="0">不在线</option>
+                    </select>
+
+                    <div class="add-eqp-line-item">
+                        24小时在线
+                    </div>
+                    <select name="show-type" id="24online-type">
+                        <option value="all">所有</option>
+                        <option value="1">需要24小时在线</option>
+                        <option value="0">不需要24小时在线</option>
+                    </select>
+
+
+
+                </div>
+
+                <div class="show-line">
+                    <div class="refresh-btn" id="eqp-refresh">
+                        刷新
+                    </div>
+                </div>
+
+{#                <div class="show-line">#}
+{#                    <div class="show-title-item vl-width">#}
+{#                        设备名称#}
+{#                    </div>#}
+{#                    <div class="show-title-item vl-width">#}
+{#                        设备编号#}
+{#                    </div>#}
+{#                    <div class="show-title-item lg-width">#}
+{#                        设备IP#}
+{#                    </div>#}
+{#                    <div class="show-title-item vl-width">#}
+{#                        设备MAC#}
+{#                    </div>#}
+{#                    <div class="show-title-item vl-width">#}
+{#                        设备所属传感器#}
+{#                    </div>#}
+{#                    <div class="show-title-item lg-width">#}
+{#                        管理员名称#}
+{#                    </div>#}
+{##}
+{#                    <div class="show-title-item vl-width">#}
+{#                        设备所属部门#}
+{#                    </div>#}
+{##}
+{#                </div>#}
+                <div id="eqp-show">
+{##}
+{#                    <div class="eqp-show-line" data-id="2">#}
+{#                        <div class="eqp-show-line-head">#}
+{#                            <i class="fa fa-laptop">&nbsp;设备</i>#}
+{#                        </div>#}
+{##}
+{#                        <div class="eqp-show-line-item">#}
+{#                            <span class="title-color">设备名称</span>#}
+{#                            <br>#}
+{#                            name#}
+{#                        </div>#}
+{#                        <div class="eqp-show-line-item">#}
+{#                            <span class="title-color">设备编号</span>#}
+{#                            <br>#}
+{#                            number#}
+{#                        </div>#}
+{#                        <div class="eqp-show-line-item">#}
+{#                            <span class="title-color">设备MAC</span>#}
+{#                            <br>#}
+{#                            11:22:33:44:55:66#}
+{#                        </div>#}
+{#                         <div class="eqp-show-line-item">#}
+{#                            <span class="title-color">设备IP</span>#}
+{#                            <br>#}
+{#                            192.168.111.111#}
+{#                        </div>#}
+{#                         <div class="eqp-show-line-item">#}
+{#                            <span class="title-color">设备所属传感器</span>#}
+{#                            <br>#}
+{#                            sensor2#}
+{#                        </div>#}
+{#                         <div class="eqp-show-line-item">#}
+{#                            <span class="title-color">管理员名称</span>#}
+{#                            <br>#}
+{#                            name2#}
+{#                        </div>#}
+{#                         <div class="eqp-show-line-item">#}
+{#                            <span class="title-color">设备所属部门</span>#}
+{#                            <br>#}
+{#                            train20#}
+{#                        </div>#}
+{##}
+{#                        <div class="eqp-show-line-cmd">#}
+{#                            <i class="fa fa-calendar-check-o">&nbsp;授权</i><br>#}
+{#                            <i class="fa fa-pencil">&nbsp;修改</i><br>#}
+{#                            <i class="fa fa-trash">&nbsp;删除</i>#}
+{#                        </div>#}
+{#                        <div class="eqp-show-line-cmd">#}
+{#                            #}
+{#                        </div>#}
+{#                        <div class="eqp-show-line-cmd">#}
+{#                            #}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="eqp-show-line" data-id="2">#}
+{#                        <div class="eqp-show-line-head">#}
+{#                            <i class="fa fa-laptop">&nbsp;设备</i>#}
+{#                        </div>#}
+{#                        <div class="eqp-show-line-cmd">#}
+{#                            <i class="fa fa-trash">&nbsp;删除</i>#}
+{#                        </div>#}
+{#                        <div class="eqp-show-line-cmd">#}
+{#                            <i class="fa fa-pencil">&nbsp;修改</i>#}
+{#                        </div>#}
+{#                    </div>#}
+
+
+                </div>
+
+            </div>
+
+            {% if inData.level==0 %}
+
+            <div class="right-core display-none" id="station-manage">
+                <div class="add-eqp-line">
+                    <div class="add-text">
+                        部门名称
+                    </div>
+                    <input type="text" class="add-input" id="station-name">
+
+                    <div class="add-text">
+                        部门编号
+                    </div>
+                    <input type="text" class="add-input" id="station-number">
+
+
+                    <div class="add-text">
+                        部门管理员
+                    </div>
+                    <input type="text" class="add-input" id="station-user">
+
+                    <div class="add-btn" id="station-submit">
+                        添加
+                    </div>
+
+                    <div id="add-station-info" class="add-normal-text">
+
+                    </div>
+
+                </div>
+
+                <div class="show-line">
+                    <div class="refresh-btn" id="station-refresh">
+                        刷新
+                    </div>
+                </div>
+
+{#                <div class="show-line">#}
+{#                    <div class="show-title-item vl-width">#}
+{#                        部门编号#}
+{#                    </div>#}
+{#                    <div class="show-title-item vl-width">#}
+{#                        部门名称#}
+{#                    </div>#}
+{#                    <div class="show-title-item vl-width">#}
+{#                        部门管理员#}
+{#                    </div>#}
+{#                </div>#}
+                <div id="station-show">
+                    <div class="station-line" data-id="2">
+                        <div class="station-line-head">
+                            <i class="fa fa-train">&nbsp;部门</i>
+                        </div>
+                        <div class="station-line-item">
+                            部门名称
+                        </div>
+                        <input type="text" disabled value="name1" class="input-disabled">
+                        <div class="station-line-item">
+                            部门编号
+                        </div>
+                        <input type="text" disabled value="number1" class="input-disabled">
+                        <div class="station-line-item">
+                            部门管理员
+                        </div>
+                        <input type="text" disabled value="user1" class="input-disabled">
+                        <button>提交</button>
+                        <button>取消</button>
+
+                        <div class="station-line-cmd">
+                            <i class="fa fa-trash">&nbsp;删除</i>
+                        </div>
+                        <div class="station-line-cmd">
+                            <i class="fa fa-pencil">&nbsp;修改</i>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+            <div class="right-core display-none" id="sensor-manage">
+                <div class="add-eqp-line">
+                    <div class="add-text">
+                        传感器名称
+                    </div>
+                    <input type="text" class="add-input sm-width" id="sensor-name">
+
+                    <div class="add-text">
+                        传感器编号
+                    </div>
+                    <input type="text" class="add-input sm-width" id="sensor-number">
+
+                    <div class="add-text">
+                        传感器MAC
+                    </div>
+                    <input type="text" class="add-input" id="sensor-mac">
+
+                    <div class="add-text">
+                        传感器IP
+                    </div>
+                    <input type="text" class="add-input" id="sensor-ip">
+
+                    <div class="add-text">
+                        所属部门ID
+                    </div>
+{#                    <input type="text" class="add-input" id="sensor-station-number">#}
+                    <select class="add-input" id="sensor-station-id">
+                        <option value="0">请选择部门</option>
+                        {% for item in inData['stationInfo'] %}
+
+                        <option value="{{ item.id }}">{{ item.name }}</option>
+
+                        {% endfor %}
+
+                    </select>
+
+
+                    <div class="add-btn" id="sensor-submit">
+                        添加
+                    </div>
+
+                    <div id="add-sensor-info" class="add-normal-text">
+
+                    </div>
+
+                </div>
+
+                <div class="show-line">
+                    <div class="refresh-btn" id="sensor-refresh">
+                        刷新
+                    </div>
+                </div>
+
+{#                <div class="show-line">#}
+{#                    <div class="show-title-item vl-width">#}
+{#                        传感器编号#}
+{#                    </div>#}
+{#                    <div class="show-title-item vl-width">#}
+{#                        传感器MAC#}
+{#                    </div>#}
+{#                    <div class="show-title-item vl-width">#}
+{#                        传感器IP#}
+{#                    </div>#}
+{#                    <div class="show-title-item vl-width">#}
+{#                        传感器所属部门编号#}
+{#                    </div>#}
+{#                    <div class="show-title-item vl-width">#}
+{#                        传感器所属部门名称#}
+{#                    </div>#}
+{#                    <div class="show-title-item vl-width">#}
+{#                        管理员名称#}
+{#                    </div>#}
+{##}
+{#                </div>#}
+                <div id="sensor-show">
+                    <div class="sensor-show-line">
+                        <div class="sensor-show-line-head">
+                            <i class="fa fa-binoculars">&nbsp;传感器</i>
+                        </div>
+                        <div class="sensor-show-line-item">
+                            <span class="title-color">传感器编号</span>
+                            <br>
+                            sensor123
+                        </div>
+                        <div class="sensor-show-line-item">
+                            <span class="title-color">传感器MAC</span>
+                            <br>
+                            11:22:33:44:55:66
+                        </div>
+                        <div class="sensor-show-line-item">
+                            <span class="title-color">传感器IP</span>
+                            <br>
+                            111.222.333.444
+                        </div>
+                        <div class="sensor-show-line-item">
+                            <span class="title-color">传感器所属部门</span>
+                            <br>
+                            train12
+                        </div>
+                        <div class="sensor-show-line-item">
+                            <span class="title-color">传感器管理员</span>
+                            <br>
+                            manage12
+                        </div>
+
+                        <div class="sensor-show-line-cmd">
+                            <i class="fa fa-trash">删除</i>
+                        </div>
+                    </div>
+
+                     <div class="sensor-show-line">
+                        <div class="sensor-show-line-head">
+                            <i class="fa fa-binoculars">&nbsp;传感器</i>
+                        </div>
+                        <div class="sensor-show-line-item">
+                            <span class="title-color">传感器编号</span>
+                            <br>
+                            sensor123
+                        </div>
+                        <div class="sensor-show-line-item">
+                            <span class="title-color">传感器MAC</span>
+                            <br>
+                            11:22:33:44:55:66
+                        </div>
+                        <div class="sensor-show-line-item">
+                            <span class="title-color">传感器IP</span>
+                            <br>
+                            111.222.333.444
+                        </div>
+                        <div class="sensor-show-line-item">
+                            <span class="title-color">传感器所属部门</span>
+                            <br>
+                            train12
+                        </div>
+                        <div class="sensor-show-line-item">
+                            <span class="title-color">传感器管理员</span>
+                            <br>
+                            manage12
+                        </div>
+                        <div class="sensor-show-line-cmd">
+                            <i class="fa fa-trash">删除</i>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="right-core display-none" id="user-manage">
+                <div class="add-eqp-line">
+
+                    <div class="add-text">
+                        用户名称
+                    </div>
+                    <input type="text" class="add-input" id="user-name">
+
+                    <div class="add-text">
+                        用户密码
+                    </div>
+                    <input type="password" class="add-input" id="user-passwd-a">
+
+                    <div class="add-text">
+                        重复用户密码
+                    </div>
+                    <input type="password" class="add-input" id="user-passwd-b">
+
+                    <div class="add-text">
+                        用户级别
+                    </div>
+
+                    <select class="add-input" id="user-level">
+                        <option value="2">普通用户</option>
+                        <option value="1">管理员</option>
+                        <option value="0">高级管理员</option>
+                    </select>
+
+                    <div class="add-btn" id="user-submit">
+                        添加
+                    </div>
+
+                    <div id="add-user-info" class="add-normal-text">
+
+                    </div>
+
+                </div>
+
+                <div class="show-line">
+                    <div class="refresh-btn" id="user-refresh">
+                        刷新
+                    </div>
+                </div>
+
+{#                <div class="show-line">#}
+{#                    <div class="show-title-item vl-width">#}
+{#                        用户名称#}
+{#                    </div>#}
+{#                    <div class="show-title-item vl-width">#}
+{#                        用户级别#}
+{#                    </div>#}
+{#                </div>#}
+                <div id="user-show">
+                    <div class="block" id="user-show-0">
+                        <div class="line" data-id="5">
+                            <div class="left level-0">
+                                <i class="fa fa-user"></i>
+                                高级管理员
+                            </div>
+                            <div class="name">
+                                todd
+                            </div>
+                            <div class="cmd">
+                                <i class="fa fa-trash" title="删除用户">&nbsp;删除</i>
+                            </div>
+                            <div class="cmd">
+                                <i class="fa fa-pencil" title="修改信息">&nbsp;修改</i>
+                            </div>
+                        </div>
+
+                        <div class="line" data-id="12">
+                            <div class="left level-0">
+                                <i class="fa fa-user"></i>
+                                高级管理员
+                            </div>
+                            <div class="name">
+                                todd
+                            </div>
+                            <div class="cmd">
+                                <i class="fa fa-trash"></i>
+                            </div>
+                            <div class="cmd">
+                                <i class="fa fa-pencil"></i>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="block" id="user-show-1">
+                        <div class="line">
+                            <div class="left level-1">
+                                <i class="fa fa-user"></i>
+                                管理员
+                            </div>
+
+                            <div class="name">
+                                todd
+                            </div>
+                            <div class="cmd">
+                                <i class="fa fa-trash"></i>
+                            </div>
+                            <div class="cmd">
+                                <i class="fa fa-pencil"></i>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="block" id="user-show-2">
+                        <div class="line">
+                            <div class="left level-1">
+                                <i class="fa fa-user"></i>
+                                管理员
+                            </div>
+
+                            <div class="name">
+                                todd
+                            </div>
+                            <div class="cmd">
+                                <i class="fa fa-trash"></i>
+                            </div>
+                            <div class="cmd">
+                                <i class="fa fa-pencil"></i>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+
+            </div>
+
+            <div class="right-core display-none" id="auth-manage">
+                <div class="add-eqp-line">
+
+                    <div class="add-text">
+                        用户名称
+                    </div>
+                        <select class="add-input" id="auth-username">
+                            <option value="none">请选择用户</option>
+
+                            {% for item in inData['addAuthUserInfo'] %}
+
+                            <option value="{{ item.id }}">{{ item.username }}</option>
+
+                            {% endfor %}
+                        </select>
+
+                    <div class="add-text">
+                        传感器编号
+                    </div>
+                        <select class="add-input" id="auth-sensor-number">
+                            <option value="none">请选择传感器</option>
+                            {% for item in inData['addAuthSensorInfo'] %}
+
+                            <option value="{{ item.id }}">{{ item.number }}</option>
+
+                            {% endfor %}
+                        </select>
+                    <div class="add-btn" id="auth-submit">
+                        授权
+                    </div>
+
+                    <div id="add-auth-info" class="add-normal-text">
+                    </div>
+                </div>
+
+                <div class="show-line">
+                    <div class="refresh-btn" id="auth-refresh">
+                        刷新
+                    </div>
+                </div>
+
+{#                <div class="show-line">#}
+{#                    <div class="show-title-item vl-width">#}
+{#                        用户名称#}
+{#                    </div>#}
+{#                    <div class="show-title-item vl-width">#}
+{#                        所管辖传感器编号#}
+{#                    </div>#}
+{#                    <div class="show-title-item sl-width">#}
+{#                        所管辖传感器所属部门名称#}
+{#                    </div>#}
+{#                    <div class="show-title-item sl-width">#}
+{#                        所管辖传感器所属部门编号#}
+{#                    </div>#}
+{#                </div>#}
+                <div id="auth-show">
+{#                    <div class="auth-show-line">#}
+{#                        <div class="auth-show-line-head">#}
+{#                            授权#}
+{#                        </div>#}
+{#                        <div class="auth-show-line-item">#}
+{#                            <span class="title-color">#}
+{#                                用户名#}
+{#                            </span>#}
+{#                            <br>#}
+{#                            todd#}
+{#                        </div>#}
+{#                        <div class="auth-show-line-item">#}
+{#                            <span class="title-color">#}
+{#                                所管辖传感器编号#}
+{#                            </span>#}
+{#                            <br>#}
+{#                            sensor123#}
+{#                        </div>#}
+{#                        <div class="auth-show-line-item">#}
+{#                            <span class="title-color">#}
+{#                                管辖传感器所属部门名称#}
+{#                            </span>#}
+{#                            <br>#}
+{#                            trainName#}
+{#                        </div>#}
+{#                        <div class="auth-show-line-cmd">#}
+{#                            <i class="fa fa-trash">删除</i>#}
+{#                        </div>#}
+{##}
+{#                    </div>#}
+                </div>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <div class="user-edit-block">
+        <div class="user-edit-block-line">
+            <div class="user-edit-block-line-item sm-width">
+                用户名
+            </div>
+            <div class="user-edit-block-line-item md-width">
+                <input type="text" data-info="name" class="disabled" disabled="disabled">
+            </div>
+            <input type="checkbox" class="user-edit-block-line-check" data-info="cname">选择
+        </div>
+
+        <div class="user-edit-block-line">
+            <div class="user-edit-block-line-item sm-width">等级</div>
+            <div class="user-edit-block-line-item md-width">
+                <select name="" data-info="level" disabled="disabled" class="disabled">
+                    <option value="0">高级管理员</option>
+                    <option value="1">管理员</option>
+                    <option value="2">普通用户</option>
+                </select>
+            </div>
+            <input type="checkbox" class="user-edit-block-line-check" data-info="clevel">选择
+
+        </div>
+        <div class="user-edit-block-line">
+            <div class="user-edit-block-line-item sm-width">
+                请输入新密码
+            </div>
+            <div class="user-edit-block-line-item md-width">
+                <input type="password" class="disabled" data-info="passworda" disabled="disabled">
+            </div>
+            <input type="checkbox" class="user-edit-block-line-check" data-info="cpasswd">选择
+
+        </div>
+        <div class="user-edit-block-line">
+            <div class="user-edit-block-line-item sm-width">
+                请重复新密码
+            </div>
+            <div class="user-edit-block-line-item md-width">
+                <input type="password" class="disabled" data-info="passwdb" disabled="disabled">
+            </div>
+        </div>
+        <div class="user-edit-block-line">
+            <button>提交</button>
+            <button>取消</button>
+        </div>
+        <div class="user-edit-block-line-msg">.
+        </div>
+    </div>
+
+    <div class="eqp-edit-block">
+        <div class="eeb-item sm-width right-text">设备名称</div>
+        <div class="eeb-item md-width">
+            <input type="text">
+        </div>
+        <div class="eeb-item sm-width right-text">24小时在线</div>
+        <div class="eeb-item ts-width">
+            <span class="fa" data-type="edit24online"></span>
+        </div>
+        <div class="eeb-msg">
+
+        </div>
+        <div class="eeb-item-right sm-width margin-right">
+            <button>
+                关闭
+            </button>
+        </div>
+        <div class="eeb-item-right sm-width">
+            <button>
+                提交
+            </button>
+        </div>
+    </div>
+
+
+</body>
+</html>

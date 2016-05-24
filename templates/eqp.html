@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <script src="./static/js/jquery-2.2.0.js"></script>
+    <script src="./static/js/all1.js"></script>
+    <script src="./static/js/main.js"></script>
+    <script src="./static/bootstrap/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="./static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/css/main.css">
+    <link rel="stylesheet" href="./static/css/all1.css">
+    <link rel="stylesheet" href="./static/css/font-awesome.min.css">
+
+    <title>monitor</title>
+</head>
+<body>
+    <div class="nav-mnt">
+        <div class="nav-main">
+            <div class="nav-logo">
+
+            </div>
+            <a class="nav-item" href="./" id="index">
+                首页
+            </a>
+
+            <a class="nav-item" href="./china-2d" id="china-2d" target="_blank">
+                铁路网
+            </a>
+            <a class="nav-item" href="./eqp" id="eqp">
+                设备
+            </a>
+
+            {% if inData.level!=2 %}
+            <a class="nav-item" href="./manage" id="manage">
+                管理
+            </a>
+            {% endif %}
+            <a class="nav-item" href="./user" id="user">
+                用户
+            </a>
+            <a class="nav-item" href="./logout" id="logout">
+                退出
+            </a>
+        </div>
+    </div>
+
+
+    <div class="mid-ctn">
+        <div class="mid-title">
+            <div class="mid-title-1"></div>
+            <div class="mid-title-2">
+
+                <div class="mid-title-2-item">
+                    所属部门
+                </div>
+                <select name="show-type" id="station-type">
+                    <option value="all">所有</option>
+                    {% for item in inData['stationInfo'] %}
+                        <option value="{{ item.name }}">{{ item.name }}</option>
+                    {% endfor %}
+
+                </select>
+
+                <div class="mid-title-2-item">
+                    授权类型
+                </div>
+                <select name="show-type" id="authority-type">
+                    <option value="all">所有</option>
+                    <option value="1">授权</option>
+                    <option value="0">未授权</option>
+                </select>
+
+                <div class="mid-title-2-item">
+                    当前在线情况
+                </div>
+                <select name="show-type" id="online-type">
+                    <option value="all">所有</option>
+                    <option value="1">在线</option>
+                    <option value="0">不在线</option>
+                </select>
+
+                <div class="mid-title-2-item">
+                    24小时在线
+                </div>
+                <select name="show-type" id="24online-type">
+                    <option value="all">所有</option>
+                    <option value="1">需要24小时在线</option>
+                    <option value="0">不需要24小时在线</option>
+                </select>
+
+
+            </div>
+
+
+
+        </div>
+        <div class="all-eqp" id="all-eqp">
+
+            <div class="clear-float" id="all-eqp-clear"></div>
+        </div>
+    </div>
+            <div class="one-eqp" id="sample-eqp" style="display:none;">
+                <div class="top">
+                    <i class="icon-laptop vl-text logo"></i>
+                    <div class="label-line">
+                        <span class="label label-pill label-primary" style="display: none;">24小时在线</span>
+                    </div>
+                    <div class="alive-btn breath-btn"></div>
+                </div>
+                <div class="text">
+{#                    <div class="text-title">#}
+{#                        computer#}
+{#                    </div>#}
+                    <div class="text-line name">
+                        <div class="text-line-left">
+                            <span class="title-text">设备名称:</span>
+                        </div>
+                        <div class="text-line-right">
+                            todd
+                        </div>
+                    </div>
+                    <div class="text-line name">
+                        <div class="text-line-left">
+                            <span class="title-text">设备ID:</span>
+                        </div>
+                        <div class="text-line-right">
+                            todd
+                        </div>
+                    </div>
+                    <div class="text-line ip">
+                        <div class="text-line-left">
+                            <span class="title-text">IP地址:</span>
+                        </div>
+                        <div class="text-line-right">
+                            todd
+                        </div>
+                    </div>
+                    <div class="text-line mac">
+                        <div class="text-line-left">
+                            <span class="title-text">mac地址:</span>
+                        </div>
+                        <div class="text-line-right">
+                            todd
+                        </div>
+                    </div>
+                    <div class="text-line">
+                        <div class="text-line-left">
+                            <span class="title-text">所属传感器:</span>
+                        </div>
+                        <div class="text-line-right">
+                            todd
+                        </div>
+                    </div>
+                    <div class="text-line">
+                        <div class="text-line-left">
+                            <span class="title-text">所属部门:</span>
+                        </div>
+                        <div class="text-line-right">
+                            todd
+                        </div>
+                    </div>
+                    <div class="text-line">
+                        <div class="text-line-left">
+                            <span class="title-text">管理员:</span>
+                        </div>
+                        <div class="text-line-right">
+
+                        </div>
+                    </div>
+
+                    <div class="time">
+                        <div class="time-line">
+                            <span class="title-text">
+                                首次发现时间
+                            </span>
+                        </div>
+                        <div class="time-line">
+                            asdf
+                        </div>
+                        <div class="time-line">
+                            <span class="title-text">
+                                最近发现时间
+                            </span>
+                        </div>
+                        <div class="time-line">
+                            asdf
+                        </div>
+                    </div>
+
+
+
+{#                    <div class="text-line">#}
+{#                        <span class="title-text">首次发现时间:</span>#}
+{#                    </div>#}
+{#                    <div class="text-line">#}
+{#                        <div class="text-line-all">#}
+{#                            todd#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="text-line">#}
+{#                        <span class="title-text">最近发现时间:</span>#}
+{#                    </div>#}
+{#                    <div class="text-line">#}
+{#                        <div class="text-line-all">#}
+{#                            todd#}
+{#                        </div>#}
+{#                    </div>#}
+                </div>
+
+            </div>
+
+</body>
+</html>

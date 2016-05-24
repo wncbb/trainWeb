@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./static/css/main.css">
+    <link rel="stylesheet" href="./static/css/history.css">
+    <link rel="stylesheet" href="./static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./static/css/fa.css">
+    <link rel="stylesheet" href="./static/jquery-ui/jquery-ui.min.css">
+    <script src="./static/js/attackTypeConfig.js"></script>
+    <script src="./static/js/jquery-2.2.0.js"></script>
+    <script src="./static/js/main.js"></script>
+    <script type="text/javascript" src="./static/jquery-ui/jquery-ui.min.js"></script>
+    <script src="./static/js/history.js"></script>
+    <title>历史记录</title>
+</head>
+<body>
+    <div class="nav-mnt">
+        <div class="nav-main">
+            <div class="nav-logo">
+
+            </div>
+            <a class="nav-item" href="./" id="index">
+                首页
+            </a>
+{#            <a class="nav-item"  href="./world-2d" id="world-2d" target="_blank">#}
+{#                全球2D#}
+{#            </a>#}
+{#            <a class="nav-item" href="./world-3d" id="world-3d" target="_blank">#}
+{#                全球3D#}
+{#            </a>#}
+            <a class="nav-item" href="./china-2d" id="china-2d" target="_blank">
+                铁路网
+            </a>
+            <a class="nav-item" href="./eqp" id="eqp">
+                设备
+            </a>
+            <a class="nav-item" href="./history" id="eqp">
+                历史记录
+            </a>
+            {% if inData.level!=2 %}
+            <a class="nav-item" href="./manage" id="manage">
+                管理
+            </a>
+            {% endif %}
+            <a class="nav-item" href="./user" id="user">
+                用户
+            </a>
+            <a class="nav-item" href="./logout" id="logout">
+                退出
+            </a>
+        </div>
+    </div>
+
+    <div class="ctn" id="ctn">
+        <div class="title">
+            网络历史记录
+        </div>
+        <div class="control-line">
+
+        </div>
+
+        <div class="table-head">
+            <div class="table-head-item sm-width">
+                时间
+            </div>
+            <div class="table-head-item tn-width">
+                传感器
+            </div>
+            <div class="table-head-item tn-width">
+                类型
+            </div>
+            <div class="table-head-item md-width">
+                来源
+            </div>
+            <div class="table-head-item md-width">
+                目标
+            </div>
+            <div class="table-head-item tn-width">
+                通信协议
+            </div>
+            <div class="table-head-item md-width">
+                威胁情报
+            </div>
+            <div class="table-head-item md-width">
+                情报来源
+            </div>
+        </div>
+
+        <div class="table-line">
+            <div class="table-line-item sm-width">
+                1990-10-30 10:12:12
+            </div>
+            <div class="table-line-item tn-width">
+                传感器
+            </div>
+            <div class="table-line-item tn-width">
+                类型
+            </div>
+            <div class="table-line-item md-width">
+                来源
+            </div>
+            <div class="table-line-item md-width">
+                目标
+            </div>
+            <div class="table-line-item tn-width">
+                通信协议
+            </div>
+            <div class="table-line-item md-width">
+                威胁情报
+            </div>
+            <div class="table-line-item md-width">
+                情报来源
+            </div>
+        </div>
+        <div class="table-line">
+            <div class="table-line-item sm-width">
+                1990-10-30 10:12:12
+            </div>
+            <div class="table-line-item tn-width">
+                传感器
+            </div>
+            <div class="table-line-item tn-width">
+                类型
+            </div>
+            <div class="table-line-item md-width">
+                来源
+            </div>
+            <div class="table-line-item md-width">
+                目标
+            </div>
+            <div class="table-line-item tn-width">
+                通信协议
+            </div>
+            <div class="table-line-item md-width">
+                威胁情报
+            </div>
+            <div class="table-line-item md-width">
+                情报来源
+            </div>
+        </div>
+        <div class="table-line">
+            <div class="table-line-item sm-width">
+                1990-10-30 10:12:12
+            </div>
+            <div class="table-line-item tn-width">
+                传感器
+            </div>
+            <div class="table-line-item tn-width">
+                类型
+            </div>
+            <div class="table-line-item md-width">
+                来源
+            </div>
+            <div class="table-line-item md-width">
+                目标
+            </div>
+            <div class="table-line-item tn-width">
+                通信协议
+            </div>
+            <div class="table-line-item md-width">
+                威胁情报
+            </div>
+            <div class="table-line-item md-width">
+                情报来源
+            </div>
+        </div>
+           <div class="table-line">
+            <div class="table-line-item sm-width">
+                1990-10-30 10:12:12
+            </div>
+            <div class="table-line-item tn-width">
+                传感器
+            </div>
+            <div class="table-line-item tn-width">
+                类型
+            </div>
+            <div class="table-line-item md-width">
+                来源
+            </div>
+            <div class="table-line-item md-width">
+                目标
+            </div>
+            <div class="table-line-item tn-width">
+                通信协议
+            </div>
+            <div class="table-line-item md-width">
+                威胁情报
+            </div>
+            <div class="table-line-item md-width">
+                情报来源
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: #999;
+}
+
+.main{
+    position: relative;
+    top: 90px;
+    width: 1552px;
+    height: auto;
+    min-height: 600px;
+    margin: 0 auto;
+}
+
+.main-top{
+    position: relative;
+    width: 100%;
+    height: 400px;
+}
+
+.main-top .part{
+    position: relative;
+    float: left;
+    width: 49%;
+    height: 100%;
+    background: #fff;
+}
+
+.main-top .part .left-part{
+    position: absolute;
+    top: 70px;
+    left: 0;
+    height: 240px;
+    width: 50%;
+
+}
+
+.main-top .part .left-part-text{
+    position: absolute;
+    top: 280px;
+    width: 50%;
+    height: 100px;
+    text-align: center;
+}
+
+
+.main-top .part .left-part-text .left-part-text-line{
+    position: relative;
+    width: 100%;
+    height: 30px;
+    text-align: right;
+    line-height: 30px;
+    color: #36f;
+}
+.main-top .part .left-part-text .left-part-text-line-left{
+    position: relative;
+    float: left;
+    width: 40%;
+    font-weight: 900;
+    text-align: right;
+}
+.main-top .part .left-part-text .left-part-text-line-right{
+    position: relative;
+    float: left;
+    margin-left: 5px;
+    width: auto;
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+    border: 1px solid green;
+}
+
+.main-top .part .right-part{
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    height: 240px;
+    width: 50%;
+
+}
+
+.part + .part{
+    margin-left: 4px;
+}
+
+.main-mid{
+    margin-top: 4px;
+    position: relative;
+    width: 100%;
+    height: 400px;
+}
+
+.main-mid .part{
+    position: relative;
+    float: left;
+    width: 378px;
+    height: 100%;
+    background: #fff;
+}
+
+.main-bot{
+    position: relative;
+    width: 100%;
+    height: 140px;
+}
+
+.main-bot .main-bot-btn{
+    margin-top: 4px;
+    margin-left: 4px;
+    position: relative;
+    float: left;
+    height: 60px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+}
+
+
+
+.main-bot .main-bot-btn .icon-word{
+    position: relative;
+    top: 8px;
+    display: block;
+    width: 100%;
+    height: 30px;
+    font-size: 28px;
+}
+
+
+.main-bot .main-bot-btn .normal-word{
+    position: relative;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 20px;
+    font-size: 20px;
+}
+
+#btn1{
+    width: 280px;
+    background: red;
+}

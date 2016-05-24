@@ -1,0 +1,6 @@
+change the last line of app2.py, change the IP
+change the static/js/wsConfig.js the IP:port   <==>  change the ws2.py IP:port
+chagne the static/2d/ipviking.js line79 IP:port   <==> change the ws2.js line 156 Port
+
+
+晓旭程序中config的id对应为sensor表中的number，而且该number会写入eqp表中，也就是说eqp.number=晓旭程序中config的id=sensor.number

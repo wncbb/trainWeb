@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <script src="./js/jquery-2.2.0.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <title>Title</title>
+
+    <style>
+        .out1{
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            background: red;
+        }
+
+        .out2{
+            width: 80px;
+            height: 80px;
+            padding: 10px;
+            background: yellow;
+        }
+
+        .out3{
+            width: 60px;
+            height: 60px;
+            padding: 10px;
+            background: green;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="out1">
+        <div class="out2">
+            <div class="out3">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        $(".out1").click(function(){
+            console.log('out1 click');
+        });
+        $(".out2").click(function(){
+            console.log('out2 click');
+        });
+        $(".out3").click(function(){
+            console.log('out3 click');
+        });
+
+
+    </script>
+</body>
+</html>

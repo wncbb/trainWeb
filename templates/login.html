@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/css/login.css">
+    <script src="./static/js/jquery-2.2.0.js"></script>
+    <script src="./static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./static/js/login.js"></script>
+    <title>LOGIN</title>
+</head>
+<body>
+    <div class="main">
+        <form action="/login" method="post">
+
+            <div class="main-line">
+                <div class="main-line-left">
+                    用户名
+                </div>
+                <input type="text" class="main-line-right" id="name" name="name">
+            </div>
+            <div class="main-line">
+                <div class="main-line-left">
+                    密码
+                </div>
+                <input type="password" class="main-line-right" id="passwd" name="passwd">
+            </div>
+            <div class="main-line">
+                <div class="main-line-left">
+                </div>
+                <input type="submit" class="submit-btn" value="登录">
+            </div>
+            {% if inData.showError==1 %}
+            <div class="main-line">
+                <div class="main-line-left"></div>
+                <div class="main-line-right">
+                    <div class="error-text">
+                        用户名或密码不正确
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </form>
+    </div>
+
+
+</body>
+</html>

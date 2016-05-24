@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./static/css/main.css">
+    <link rel="stylesheet" href="./static/css/user.css">
+    <script src="./static/js/jquery-2.2.0.js"></script>
+    <script src="./static/js/main.js"></script>
+    <script src="./static/js/user.js"></script>
+    <title>用户</title>
+</head>
+<body>
+
+    <div class="nav-mnt">
+        <div class="nav-main">
+            <div class="nav-logo">
+
+            </div>
+            <a class="nav-item" href="./" id="index">
+                首页
+            </a>
+{#            <a class="nav-item"  href="./world-2d" id="world-2d" target="_blank">#}
+{#                全球2D#}
+{#            </a>#}
+{#            <a class="nav-item" href="./world-3d" id="world-3d" target="_blank">#}
+{#                全球3D#}
+{#            </a>#}
+            <a class="nav-item" href="./china-2d" id="china-2d" target="_blank">
+                铁路网
+            </a>
+            <a class="nav-item" href="./eqp" id="eqp">
+                设备
+            </a>
+
+            {% if inData.level!=2 %}
+            <a class="nav-item" href="./manage" id="manage">
+                管理
+            </a>
+            {% endif %}
+            <a class="nav-item" href="./user" id="user">
+                用户
+            </a>
+            <a class="nav-item" href="./logout" id="logout">
+                退出
+            </a>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="main">
+        <div class="main-ctn">
+            <div class="main-line">
+                <div class="main-line-left">
+                    用户名
+                </div>
+                <div class="main-line-right">
+                    {{ inData.username }}
+                </div>
+            </div>
+            <div class="main-line">
+                <div class="main-line-left">
+                    等级
+                </div>
+                <div class="main-line-right" id="user-level">
+                    {{ inData.level }}
+                </div>
+            </div>
+            <div class="main-btn" id="change-passwd">
+                修改信息
+            </div>
+            <form class="main-dropdown" id="change-passwd-dropdown" method="post" action="/user">
+
+                <div class="dropdown-line">
+                    <div class="dropdown-line-left">
+                        用户名
+                    </div>
+                    <div class="dropdown-line-right" >
+                        <input value="{{ inData.username }}" type="text" id="newname" name="newname">
+                    </div>
+
+                </div>
+
+                <div class="dropdown-line">
+                    <div class="dropdown-line-left">
+                        原密码
+                    </div>
+                    <div class="dropdown-line-right" >
+                        <input placeholder="原密码" type="password" id="old-passwd" name="old-passwd">
+                    </div>
+
+                </div>
+                <div class="dropdown-line">
+                    <div class="dropdown-line-left">
+                        新密码
+                    </div>
+                    <div class="dropdown-line-right" >
+                        <input placeholder="新密码" type="password" id="new-passwd-a" name="new-passwd-a">
+                    </div>
+
+                </div>
+                <div class="dropdown-line">
+                    <div class="dropdown-line-left">
+                        重复新密码
+                    </div>
+                    <div class="dropdown-line-right" >
+                        <input placeholder="重复新密码" type="password" id="new-passwd-b" name="new-passwd-b">
+                    </div>
+
+                </div>
+                <div class="dropdown-error-line" id="error-info">
+                    {% if inData.newPwError==1 %}
+                    新密码两次输入的不一致
+                    {% endif %}
+                    {% if inData.oldPwError==1 %}
+                    原密码输入不正确
+                    {% endif %}
+
+
+                </div>
+
+                <input type="submit" class="dropdown-line-btn" value="提交">
+
+
+            </form>
+            <div class="dropdown-suc-line">
+                {% if inData.changeInfo==1 %}
+                    修改信息成功
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
